@@ -1,0 +1,104 @@
+.Card-img-damage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 5vw; */
+    animation: damage 2s ease 0s 1 normal forwards;
+}
+
+.Card-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 5vw; */
+}
+
+.dmg {
+    color: #C23D3D;
+    font-size: x-large;
+    font-family: monospace;
+    margin-top: 2vh;
+}
+
+.damage-active {
+	animation: damage 2s ease 0s 1 normal forwards;
+	color: #C23D3D;
+}
+
+@keyframes damage {
+	0% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	5% {
+		animation-timing-function: ease-in;
+		transform: translateY(30px);
+	}
+
+	15% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	25% {
+		animation-timing-function: ease-in;
+		transform: translateY(38px);
+	}
+
+	38% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	52% {
+		animation-timing-function: ease-in;
+		transform: translateY(75px);
+	}
+
+	70% {
+		animation-timing-function: ease-out;
+		transform: translateY(0);
+	}
+
+	85% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(800px);
+	}
+}
+
+@keyframes damage {
+	0%,
+	100% {
+		transform: rotate(0deg);
+		transform-origin: 50% 50%;
+	}
+
+	10% {
+		transform: rotate(8deg);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: rotate(-10deg);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: rotate(10deg);
+	}
+
+	80% {
+		transform: rotate(-8deg);
+	}
+
+	90% {
+		transform: rotate(8deg);
+	}
+}
