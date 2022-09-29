@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 body {
@@ -7,144 +7,155 @@ body {
 }
 
 .Card {
-  background-color: #D9D9D9;
-  position: relative;
-  width: 12vw;
-  height: 30vh;
-  min-width: 100px;
-  min-height: 50px;
-  /* border-radius: 3vh; */
-  align-items: center;
-  /* margin: 5vh; */
-  display: grid;
+    background-color: #D9D9D9;
+    position: relative;
+    width: 12vw;
+    height: 30vh;
+    min-width: 100px;
+    min-height: 50px;
+    /* border-radius: 3vh; */
+    align-items: center;
+    /* margin: 5vh; */
+    display: grid;
 }
 
 .Card-front {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 5vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5vw;
 }
 
 .Card-back {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 5vw;
-
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5vw;
 }
 
 .sprites {
-  width: 10vw;
-  display: inline-flex;
+    width: 10vw;
+    display: inline-flex;
 }
 
 .Card-atr {
-  position: relative;
-  width: 100%;
-  height: 6vh;
-  /* border-radius: 5vh; */
-  text-align: center;
-  background-color: #3d69c2;
-  color: #D9D9D9;
-  margin-top: 0.5vh;
+    position: relative;
+    width: 100%;
+    height: 6vh;
+    /* border-radius: 5vh; */
+    text-align: center;
+    background-color: #3d69c2;
+    color: #D9D9D9;
+    margin-top: 0.5vh;
 }
 
 .Card-atr-enemy {
-  position: relative;
-  width: 100%;
-  height: 6vh;
-  /* border-radius: 5vh; */
-  text-align: center;
-  background-color: #C23D3D;
-  color: #D9D9D9;
-  margin-top: 0.5vh;
+    position: relative;
+    width: 100%;
+    height: 6vh;
+    /* border-radius: 5vh; */
+    text-align: center;
+    background-color: #C23D3D;
+    color: #D9D9D9;
+    margin-top: 0.5vh;
 }
 
 .Card-atr-enemy:hover {
-  transition: all 500ms ease;
-  width: 110%;
-  height: 8vh;
-  background-color: #8e2e2e;
-  border-bottom-right-radius: 15px;
-  border-top-right-radius: 15px;
+    transition: all 500ms ease;
+    width: 110%;
+    height: 8vh;
+    background-color: #8e2e2e;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .Card-atr:hover {
-  transition: all 500ms ease;
-  width: 110%;
-  height: 8vh;
-  background-color: #213968;
-  border-bottom-right-radius: 15px;
-  border-top-right-radius: 15px;
+    transition: all 500ms ease;
+    width: 110%;
+    height: 8vh;
+    background-color: #213968;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .Pokemon-container {
-  align-self: center;
+    align-self: center;
 }
+
 
 /* .Card:hover {
   transform: scale(1.1);
 } */
 
 .Card-name {
-  background-color: #3d69c2;
-  color: #D9D9D9;
-  width: 100%;
-  height: 7vh;
-  /* border-radius: 5vh; */
-  text-align: center;
+    background-color: #3d69c2;
+    color: #D9D9D9;
+    width: 100%;
+    height: 7vh;
+    /* border-radius: 5vh; */
+    text-align: center;
 }
 
 .Card-name-enemy {
-  background-color: #C23D3D;
-  color: #D9D9D9;
-  width: 100%;
-  height: 7vh;
-  /* border-radius: 5vh; */
-  text-align: center;
+    background-color: #C23D3D;
+    color: #D9D9D9;
+    width: 100%;
+    height: 7vh;
+    /* border-radius: 5vh; */
+    text-align: center;
 }
 
-.Rival-container{
-  text-align: center;
+.Rival-container {
+    text-align: center;
 }
 
 .App-body {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  background: #252020;
-  flex-wrap: wrap;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    background: #252020;
+    flex-wrap: wrap;
 }
 
 .App-header {
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-
-  /* position: absolute; */
-  width: 100vw;
-  height: 10%;
-
-  background: #C23D3D;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    /* position: absolute; */
+    width: 100vw;
+    height: 10%;
+    background: #C23D3D;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.dialog {
+    position: relative;
+    min-width: 10vw;
+    min-height: 2vh;
+    max-width: 50vw;
+    max-height: 10vh;
+    background: #C23D3D;
+    border-radius: 5vh;
+    color: azure;
+    text-align: center;
+    margin-top: 70vh;
 }

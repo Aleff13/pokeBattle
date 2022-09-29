@@ -12,10 +12,10 @@ const Body = () => {
 
     const [poke, setPoke] = useState<PokemonProps>(defaultPokemon)
     const [oponent, setOponent] = useState<PokemonProps>(defaultPokemon)
-    const [hp, setHp] = useState<number>(100)
-    const [oponentHp, setOponentHp] = useState<number>(100)
+    const [hp, setHp] = useState<number>(Math.floor(Math.random() * 150) + 100)
+    const [oponentHp, setOponentHp] = useState<number>(Math.floor(Math.random() * 150) + 100)
     const [damage, setDamage] = useState<number>(0)
-
+    const [msg, setMsg] = useState<string>('Selecione um ataque para iniciar a batalha')
     const divRef = React.useRef<HTMLDivElement>(null);
 
     const setPokemons = (isOponent: boolean) => {
@@ -63,12 +63,14 @@ const Body = () => {
                 let damage = oponentHp - newOponentHp
 
                 setDamage(damage)
-
+                setMsg(`Seu ataque causou ${damage} de dano, e você recebeu ${hp - newHp} de dano`)
                 if (newOponentHp < 0){ 
                     newOponentHp = 0;
+                    window.location.reload()
                 }
                 if (newHp < 0) {
                     newHp = 0;
+                    setMsg(`Você perdeu`)
                     window.location.reload()
                 }
 
@@ -86,8 +88,9 @@ const Body = () => {
             }
             />
         </div>
+        <div className="dialog" ref={divRef}>{msg}</div>
         <div className="Rival-container">
-        <div ref={divRef} className='dmg'> {damage}</div>
+        {/* <div ref={divRef} className='dmg'> {damage}</div> */}
             <Pokemon
             hp={oponentHp}
             name={oponent.name}
