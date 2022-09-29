@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pokeBattle/static/css/main.a4c3ad65.css",
+    "main.css": "/pokeBattle/static/css/main.0716dd77.css",
     "main.js": "/pokeBattle/static/js/main.8b021c4d.js",
     "static/js/787.903b561b.chunk.js": "/pokeBattle/static/js/787.903b561b.chunk.js",
     "index.html": "/pokeBattle/index.html",
-    "main.a4c3ad65.css.map": "/pokeBattle/static/css/main.a4c3ad65.css.map",
+    "main.0716dd77.css.map": "/pokeBattle/static/css/main.0716dd77.css.map",
     "main.8b021c4d.js.map": "/pokeBattle/static/js/main.8b021c4d.js.map",
     "787.903b561b.chunk.js.map": "/pokeBattle/static/js/787.903b561b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a4c3ad65.css",
+    "static/css/main.0716dd77.css",
     "static/js/main.8b021c4d.js"
   ]
 }
