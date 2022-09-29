@@ -106,7 +106,7 @@ body {
 }
 
 .Rival-container {
-    /* margin-top: 5vh; */
+    margin-top: 5vh;
     text-align: center;
 }
 
@@ -149,7 +149,7 @@ body {
 }
 
 .dialog {
-    position: relative;
+    position: absolute;
     min-width: 10vw;
     min-height: 2vh;
     max-width: 50vw;
@@ -159,8 +159,8 @@ body {
     color: azure;
     text-align: center;
     margin-top: 70vh;
-    padding-left: 2vh;
-    padding-right: 2vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
     padding-bottom: 2vh;
     padding-top: 1vh;
 }
