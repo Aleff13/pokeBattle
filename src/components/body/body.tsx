@@ -21,14 +21,16 @@ const Body = () => {
     const cookies = new Cookies();
     console.log(cookies.get('lvl')); // Pacman
 
-    if (!cookies.get('lvl')){
-        cookies.set('lvl', 0, { path: '/' });
+    if (!cookies.get('lvl') || !cookies.get('pokemon') || !cookies.get('hp')){
+        cookies.set('lvl', 1, { path: '/' });
+        cookies.set('hp', getRandomInt(100, 150))
+        cookies.set('pokemon', prompt("Qual pokemon você deseja utilizar? \n 1: bulbasaur \n 4: charmander \n 7: squirtle"))
     }
 
     const [poke, setPoke] = useState<PokemonProps>(defaultPokemon)
     const [oponent, setOponent] = useState<PokemonProps>(defaultPokemon)
 
-    const [maxHp, setMaxHp] = useState<number>(getRandomInt(100, 150))
+    const [maxHp, setMaxHp] = useState<number>(Number(cookies.get('hp')))
     const [maxOponentHp, setMaxOponentHp] = useState<number>(getRandomInt(100, 150))
     const [hp, setHp] = useState<number>(maxHp)
     const [oponentHp, setOponentHp] = useState<number>(maxOponentHp)
@@ -41,7 +43,8 @@ const Body = () => {
     const setPokemons = (isOponent: boolean) => {
     
         axios.get(
-            `https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 101)}`)
+            // `https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 101)}`)
+            `https://pokeapi.co/api/v2/pokemon/${!isOponent ? cookies.get('pokemon') : getRandomInt(1, 200)}`)
             .then(res => {
                 let obj = {
                     'name': res.data.name,
@@ -67,6 +70,44 @@ const Body = () => {
         setPokemons(false)
     }, [])
 
+    const evolution = () => {
+        console.log('entry')
+        if (cookies.get('lvl') >= 5){
+            switch (cookies.get('pokemon')){
+                case '4' || 'charmander':
+                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('pokemon', 5)
+                    break;
+                case '1' || 'bulbasaur':
+                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('pokemon', 2)
+                    break;
+                case '7' || 'squirtle':
+                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('pokemon', 8)
+                    break;
+            }
+        }
+        if (cookies.get('lvl') >= 10){
+            console.log('firstIf')
+            console.log(cookies.get('pokemon'))
+            switch (cookies.get('pokemon')){
+                case '5':
+                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('pokemon', 6)
+                    break;
+                case '2':
+                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('pokemon', 3)
+                    break;
+                case '8':
+                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('pokemon', 9)
+                    break;
+            }
+        }
+    }
+
   return (
       <section className="App-body">
         <div className="Pokemon-container">
@@ -82,17 +123,22 @@ const Body = () => {
             onClick={ () => { 
 
                 //let newOponentHp = (oponentHp -( Math.floor(Math.random() * 30) + 1))
-                let newOponentHp = (oponentHp - getRandomInt(1, 30))
+                let newOponentHp = (oponentHp - getRandomInt(Number(cookies.get('lvl')), 30))
+                // let newOponentHp = (oponentHp - 200)
 
                 let newHp = (hp - ( Math.floor(Math.random() * 30) + 1))
-                let damage = oponentHp - newOponentHp
+                let dmg = oponentHp - newOponentHp
 
-                setDamage(damage)
+                evolution()
+
+                setDamage(dmg)
                 setMsg(`Seu ataque causou ${damage} de dano, e você recebeu ${hp - newHp} de dano`)
                 if (newOponentHp < 0){ 
                     newOponentHp = 0;
                     let currentLvl: number = Number(cookies.get('lvl'));
+                    cookies.set('hp', maxHp + getRandomInt(2, 5))
                     cookies.set('lvl', currentLvl + 1);
+                    
                     window.location.reload()
                 }
                 if (newHp < 0) {
