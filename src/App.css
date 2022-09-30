@@ -101,6 +101,17 @@ body {
     
 }
 
+.Pokemon-lvl{
+    background-color: #C23D3B;
+    /* display: flex; */
+    border-radius: 20vw;
+    color: aliceblue;
+    height: 3vh;
+    width: fit-content;
+    padding: 1vh;
+    text-align: center;
+}
+
 .Card-name-enemy {
     background-color: #C23D3D;
     color: #D9D9D9;
