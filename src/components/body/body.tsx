@@ -4,6 +4,8 @@ import Pokemon, { PokemonProps } from '../pokemon/pokemon';
 import axios from 'axios';
 import React from 'react';
 
+import Cookies from 'universal-cookie';
+
 const defaultPokemon: PokemonProps = {
     hp: 100,
     maxHp: 200
@@ -14,6 +16,13 @@ const Body = () => {
     const getRandomInt = (min: number = 1, max: number = 100) => {
         let randomNum = Math.floor(Math.random() * max) + min;
         return randomNum;
+    }
+
+    const cookies = new Cookies();
+    console.log(cookies.get('lvl')); // Pacman
+
+    if (!cookies.get('lvl')){
+        cookies.set('lvl', 0, { path: '/' });
     }
 
     const [poke, setPoke] = useState<PokemonProps>(defaultPokemon)
@@ -61,6 +70,7 @@ const Body = () => {
   return (
       <section className="App-body">
         <div className="Pokemon-container">
+            <div className='Pokemon-lvl'>Level {cookies.get('lvl')}</div>
             <Pokemon 
             hp={hp}
             maxHp={maxHp}
@@ -81,6 +91,8 @@ const Body = () => {
                 setMsg(`Seu ataque causou ${damage} de dano, e você recebeu ${hp - newHp} de dano`)
                 if (newOponentHp < 0){ 
                     newOponentHp = 0;
+                    let currentLvl: number = Number(cookies.get('lvl'));
+                    cookies.set('lvl', currentLvl + 1);
                     window.location.reload()
                 }
                 if (newHp < 0) {
