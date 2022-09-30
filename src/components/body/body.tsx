@@ -5,17 +5,28 @@ import axios from 'axios';
 import React from 'react';
 
 const defaultPokemon: PokemonProps = {
-    hp: 100
+    hp: 100,
+    maxHp: 200
 }
 
 const Body = () => {
 
+    const getRandomInt = (min: number = 1, max: number = 100) => {
+        let randomNum = Math.floor(Math.random() * max) + min;
+        return randomNum;
+    }
+
     const [poke, setPoke] = useState<PokemonProps>(defaultPokemon)
     const [oponent, setOponent] = useState<PokemonProps>(defaultPokemon)
-    const [hp, setHp] = useState<number>(Math.floor(Math.random() * 150) + 100)
-    const [oponentHp, setOponentHp] = useState<number>(Math.floor(Math.random() * 150) + 100)
+
+    const [maxHp, setMaxHp] = useState<number>(getRandomInt(100, 150))
+    const [maxOponentHp, setMaxOponentHp] = useState<number>(getRandomInt(100, 150))
+    const [hp, setHp] = useState<number>(maxHp)
+    const [oponentHp, setOponentHp] = useState<number>(maxOponentHp)
+
     const [damage, setDamage] = useState<number>(0)
     const [msg, setMsg] = useState<string>('Selecione um ataque para iniciar a batalha')
+
     const divRef = React.useRef<HTMLDivElement>(null);
 
     const setPokemons = (isOponent: boolean) => {
@@ -30,7 +41,8 @@ const Body = () => {
                     'secondAbility' : res.data.abilities[1].ability.name,
                     'frontImg' : res.data.sprites.back_default,
                     'backImg' : res.data.sprites.front_default,
-                    'hp' : 100
+                    'hp' : 100,
+                    'maxHp' : 200
                 }
                 if (isOponent) {
                     setOponent(obj)
@@ -51,6 +63,7 @@ const Body = () => {
         <div className="Pokemon-container">
             <Pokemon 
             hp={hp}
+            maxHp={maxHp}
             name={poke.name}
             img={poke.frontImg}
             firstAbility={poke.firstAbility}
@@ -58,7 +71,9 @@ const Body = () => {
             isOponent={false}
             onClick={ () => { 
 
-                let newOponentHp = (oponentHp -( Math.floor(Math.random() * 30) + 1))
+                //let newOponentHp = (oponentHp -( Math.floor(Math.random() * 30) + 1))
+                let newOponentHp = (oponentHp - getRandomInt(1, 30))
+
                 let newHp = (hp - ( Math.floor(Math.random() * 30) + 1))
                 let damage = oponentHp - newOponentHp
 
@@ -93,6 +108,7 @@ const Body = () => {
         {/* <div ref={divRef} className='dmg'> {damage}</div> */}
             <Pokemon
             hp={oponentHp}
+            maxHp={maxOponentHp}
             name={oponent.name}
             img={oponent.backImg}
             firstAbility={oponent.firstAbility}

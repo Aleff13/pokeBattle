@@ -13,6 +13,7 @@ export interface PokemonProps {
     backImg?: string;
     isOponent?: boolean;
     hp: number;
+    maxHp?: number;
     onClick?: () => boolean;
 }
 
@@ -27,6 +28,7 @@ const Pokemon: FC<PokemonProps> = ({
     backImg,
     isOponent,
     hp,
+    maxHp,
     onClick
 }) => {
   return (
@@ -34,7 +36,8 @@ const Pokemon: FC<PokemonProps> = ({
             
             { isOponent
                 ?   <>
-                    <div className='Card-name'>{name} | HP {hp}</div>
+                    <div className='Card-name'>{name} <br/>  hp {hp}</div>
+                    <progress className='hp' value={hp} max={maxHp}></progress>
                     <img className='Card-img-damage' src={img} />
                     <span className='sprites'>
                     <img className='Card-front' src={frontImg} />
@@ -43,7 +46,8 @@ const Pokemon: FC<PokemonProps> = ({
                     <div className='Card-atr' onClick={onClick}>{firstAbility}</div>
                     <div className='Card-atr' onClick={onClick}>{secondAbility}</div></>
                 :   <>
-                    <div className='Card-name-enemy'>{name} | HP {hp}</div>
+                    <div className='Card-name-enemy'>{name} <br/>  hp {hp}</div>
+                    <progress className='hp' value={hp} max={maxHp}> </progress>
                     <img className='Card-img' src={img} />
                     <span className='sprites'>
                     <img className='Card-front' src={frontImg} />

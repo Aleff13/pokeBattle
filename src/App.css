@@ -96,6 +96,11 @@ body {
     text-align: center;
 }
 
+.hp {
+    width: auto;
+    
+}
+
 .Card-name-enemy {
     background-color: #C23D3D;
     color: #D9D9D9;
