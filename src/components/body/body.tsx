@@ -44,7 +44,7 @@ const Body = () => {
     
         axios.get(
             // `https://pokeapi.co/api/v2/pokemon/${Math.floor(Math.random() * 101)}`)
-            `https://pokeapi.co/api/v2/pokemon/${!isOponent ? cookies.get('pokemon') : getRandomInt(1, 200)}`)
+            `https://pokeapi.co/api/v2/pokemon/${!isOponent ? cookies.get('pokemon') : getRandomInt(2, 200)}`)
             .then(res => {
                 let obj = {
                     'name': res.data.name,
