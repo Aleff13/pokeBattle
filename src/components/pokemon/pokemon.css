@@ -1,0 +1,147 @@
+.Card-grass {
+    box-sizing: border-box;
+    /* position: absolute; */
+    max-width: 25vw;
+    min-width: 150px;
+    height: auto;
+    background: #EEE3D8;
+    border: 1vh solid #464646;
+    border-radius: 22px;
+    color: black;
+}
+
+.Card-name {
+    font-size: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1vw;
+    font-weight: bold;
+    align-items: self-end;
+    justify-content: space-between;
+}
+
+.Card-name-enemy {
+    font-size: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1vw;
+    font-weight: bold;
+    align-items: self-end;
+    justify-content: space-between;
+}
+
+.Card-lv {
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #a63a3a;
+    border: 1vh;
+    border-radius: 1vh;
+    width: 5vw;
+    color: aliceblue;
+    justify-items: center;
+    align-items: center;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    margin-top: 0.5vh;
+}
+
+.Card-lv-enemy {
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #3a6ca6;
+    border: 1vh;
+    border-radius: 1vh;
+    width: 5vw;
+    color: aliceblue;
+    justify-items: center;
+    align-items: center;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    margin-top: 0.5vh;
+}
+
+.Img-box {
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #EEE3D8;
+    border: 3px solid #a63a3a;
+    margin: 1vh;
+    border-radius: 1vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.Img-box-enemy {
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #EEE3D8;
+    border: 3px solid #3a6ca6;
+    margin: 1vh;
+    border-radius: 1vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.Hp-box {
+    display: flex;
+    font-size: 2vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+.hp {
+    margin-top: 0.5vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+.Card-img {}
+
+.Card-atr {
+    position: relative;
+    display: flex;
+    background: #a63a3a;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
+    border: 3px;
+    margin: 1vh;
+    border-radius: 1vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    color: #EEE3D8;
+    font-size: 2vh;
+    height: 5vh;
+}
+
+.Card-atr-enemy {
+    position: relative;
+    display: flex;
+    background: #3a6ca6;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
+    border: 3px;
+    margin: 1vh;
+    border-radius: 1vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    color: #EEE3D8;
+    font-size: 2vh;
+    height: 5vh;
+}
+
+.Card-atr-enemy:hover {
+    background: #234872;
+    cursor: pointer;
+}

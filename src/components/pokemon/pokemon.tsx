@@ -1,6 +1,6 @@
 import { FC, } from 'react';
-import '../../App.css';
-import '../../Animation.css';
+// import '../../Animation.css';
+import '../pokemon/pokemon.css';
 
 export interface PokemonProps {
     name?: string;
@@ -14,6 +14,7 @@ export interface PokemonProps {
     isOponent?: boolean;
     hp: number;
     maxHp?: number;
+    lvl?: number;
     onClick?: () => boolean;
 }
 
@@ -29,24 +30,46 @@ const Pokemon: FC<PokemonProps> = ({
     isOponent,
     hp,
     maxHp,
+    lvl,
     onClick
 }) => {
   return (
-      <div className='Card'>
+      <div className='Card-grass'>
             
             { isOponent
                 ?   <>
-                    <div className='Card-name'>{name} <br/>  hp {hp}</div>
-                    <progress className='hp' value={hp} max={maxHp}></progress>
-                    <img className='Card-img-damage' alt='' src={img} />
-                    <div className='Card-atr' onClick={onClick}>{firstAbility}</div>
-                    <div className='Card-atr' onClick={onClick}>{secondAbility}</div></>
-                :   <>
-                    <div className='Card-name-enemy'>{name} <br/>  hp {hp}</div>
-                    <progress className='hp' value={hp} max={maxHp}> </progress>
+                    <div className='Card-name'>
+                    {name?.toUpperCase()}
+                        <div className='Card-lv'> Lv ??</div>
+                    </div>
+                    
+                    <span className='Img-box'>
                     <img className='Card-img' alt='' src={img} />
-                    <div className='Card-atr-enemy' onClick={onClick}>{firstAbility}</div>
-                    <div className='Card-atr-enemy' onClick={onClick}>{secondAbility}</div></>
+                    </span>
+                    <span className='Hp-box'>
+                        <b>{hp}/{maxHp}</b>
+                    <progress className='hp' value={hp} max={maxHp}></progress>
+                    </span>
+                    <div className='Card-atr' onClick={onClick}>{firstAbility?.toUpperCase()}</div>
+                    <div className='Card-atr' onClick={onClick}>{secondAbility?.toUpperCase()}</div>
+                  </>
+                : 
+                      <>
+                    <div className='Card-name-enemy'>
+                    {name?.toUpperCase()}
+                        <div className='Card-lv-enemy'> Lv {lvl}</div>
+                    </div>
+                    
+                    <span className='Img-box-enemy'>
+                    <img className='Card-img' alt='' src={img} />
+                    </span>
+                    <span className='Hp-box'>
+                        <b>{hp}/{maxHp}</b>
+                    <progress className='hp' value={hp} max={maxHp}></progress>
+                    </span>
+                    <div className='Card-atr-enemy' onClick={onClick}>{firstAbility?.toUpperCase()}</div>
+                    <div className='Card-atr-enemy' onClick={onClick}>{secondAbility?.toUpperCase()}</div>
+                  </>
             }
           
       </div>

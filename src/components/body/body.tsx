@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import '../../App.css';
+import '../../components/pokemon/pokemon.css';
+
 import Pokemon, { PokemonProps } from '../pokemon/pokemon';
 import axios from 'axios';
 import React from 'react';
@@ -111,7 +112,6 @@ const Body = () => {
   return (
       <section className="App-body">
         <div className="Pokemon-container">
-            <div className='Pokemon-lvl'>Level {cookies.get('lvl')}</div>
             <Pokemon 
             hp={hp}
             maxHp={maxHp}
@@ -120,6 +120,7 @@ const Body = () => {
             firstAbility={poke.firstAbility}
             secondAbility={poke.secondAbility}
             isOponent={false}
+            lvl={cookies.get('lvl')}
             onClick={ () => { 
 
                 //let newOponentHp = (oponentHp -( Math.floor(Math.random() * 30) + 1))
