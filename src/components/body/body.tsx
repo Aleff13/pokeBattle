@@ -179,7 +179,12 @@ const Body = () => {
             isOponent={true}
             />
         </div>
+        <footer>
+            <p className='footer'>Created by Aleff Menna Resler using <a href='https://pokeapi.co/about'>pokeAPI</a>. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+        </footer>
       </section>
+
+      
   );
 }
 

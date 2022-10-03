@@ -145,3 +145,16 @@
     background: #234872;
     cursor: pointer;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100vw;
+    background: #C23D3D;
+}
+
+.footer {
+    font-size: 2vh;
+    color: white;
+}
