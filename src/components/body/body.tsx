@@ -133,7 +133,7 @@ const Body = () => {
 
                 setMsg(`
                 Você causou ${oponentDmg} de dano ao seu inimigo \n
-                você recebeu ${dmg} de dano}
+                você recebeu ${dmg} de dano
                 `)
 
                 if (newOponentHp <= 0){ 
