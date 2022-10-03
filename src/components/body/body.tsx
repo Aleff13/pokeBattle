@@ -133,7 +133,7 @@ const Body = () => {
 
                 setMsg(`
                 Você causou ${oponentDmg} de dano ao seu inimigo \n
-                você recebeu ${dmg} de dano
+                você recebeu ${dmg} de dano.
                 `)
 
                 if (newOponentHp <= 0){ 
@@ -145,7 +145,7 @@ const Body = () => {
                     window.location.reload()
                 }
 
-                if (newHp < 0) {
+                if (newHp <= 0) {
                     newHp = 0;
                     setMsg(`Você perdeu`)
                     window.location.reload()

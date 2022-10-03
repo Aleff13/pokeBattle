@@ -57,7 +57,6 @@ body {
 }
 
 .dialog {
-    position: absolute;
     min-width: 10vw;
     min-height: 2vh;
     max-width: 50vw;
@@ -67,7 +66,8 @@ body {
     border-radius: 2vh;
     color: rgb(0, 0, 0);
     text-align: center;
-    margin-top: 60vh;
+    position: fixed;
+    bottom: 15vh;
     padding-left: 1vh;
     padding-right: 1vh;
     padding-bottom: 2vh;
