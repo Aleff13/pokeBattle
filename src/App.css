@@ -62,9 +62,10 @@ body {
     min-height: 2vh;
     max-width: 50vw;
     max-height: 10vh;
-    background: #C23D3D;
-    border-radius: 5vh;
-    color: azure;
+    background: #EEE3D8;
+    border: 1vh solid #464646;
+    border-radius: 3vh;
+    color: rgb(0, 0, 0);
     text-align: center;
     margin-top: 70vh;
     padding-left: 1vh;
