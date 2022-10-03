@@ -20,7 +20,6 @@ const Body = () => {
     }
 
     const cookies = new Cookies();
-    console.log(cookies.get('lvl')); // Pacman
 
     if (!cookies.get('lvl') || !cookies.get('pokemon') || !cookies.get('hp')){
         cookies.set('lvl', 1, { path: '/' });
@@ -32,7 +31,7 @@ const Body = () => {
     const [oponent, setOponent] = useState<PokemonProps>(defaultPokemon)
 
     const [maxHp, setMaxHp] = useState<number>(Number(cookies.get('hp')))
-    const [maxOponentHp, setMaxOponentHp] = useState<number>(getRandomInt(100, 150))
+    const [maxOponentHp, setMaxOponentHp] = useState<number>(getRandomInt(100, Number(cookies.get('hp'))))
     const [hp, setHp] = useState<number>(maxHp)
     const [oponentHp, setOponentHp] = useState<number>(maxOponentHp)
 
@@ -72,37 +71,35 @@ const Body = () => {
     }, [])
 
     const evolution = () => {
-        console.log('entry')
         if (cookies.get('lvl') >= 5){
             switch (cookies.get('pokemon')){
                 case '4' || 'charmander':
-                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('hp', maxHp + getRandomInt(20, 30))
                     cookies.set('pokemon', 5)
                     break;
                 case '1' || 'bulbasaur':
-                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('hp', maxHp + getRandomInt(20, 30))
                     cookies.set('pokemon', 2)
                     break;
                 case '7' || 'squirtle':
-                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('hp', maxHp + getRandomInt(20, 30))
                     cookies.set('pokemon', 8)
                     break;
             }
         }
         if (cookies.get('lvl') >= 10){
-            console.log('firstIf')
-            console.log(cookies.get('pokemon'))
+
             switch (cookies.get('pokemon')){
                 case '5':
-                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('hp', maxHp + getRandomInt(20, 30))
                     cookies.set('pokemon', 6)
                     break;
                 case '2':
-                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('hp', maxHp + getRandomInt(20, 30))
                     cookies.set('pokemon', 3)
                     break;
                 case '8':
-                    cookies.set('hp', maxHp + getRandomInt(20, 50))
+                    cookies.set('hp', maxHp + getRandomInt(20, 30))
                     cookies.set('pokemon', 9)
                     break;
             }
@@ -123,18 +120,23 @@ const Body = () => {
             lvl={cookies.get('lvl')}
             onClick={ () => { 
 
-                //let newOponentHp = (oponentHp -( Math.floor(Math.random() * 30) + 1))
                 let newOponentHp = (oponentHp - getRandomInt(Number(cookies.get('lvl')), 30))
-                // let newOponentHp = (oponentHp - 200)
 
                 let newHp = (hp - ( Math.floor(Math.random() * 30) + 1))
-                let dmg = oponentHp - newOponentHp
+
+                let oponentDmg = oponentHp - newOponentHp;
+                let dmg = hp - newHp;
 
                 evolution()
 
                 setDamage(dmg)
-                setMsg(`Seu ataque causou ${damage} de dano, e você recebeu ${hp - newHp} de dano`)
-                if (newOponentHp < 0){ 
+
+                setMsg(`
+                Você causou ${oponentDmg} de dano ao seu inimigo \n
+                você recebeu ${dmg} de dano}
+                `)
+
+                if (newOponentHp <= 0){ 
                     newOponentHp = 0;
                     let currentLvl: number = Number(cookies.get('lvl'));
                     cookies.set('hp', maxHp + getRandomInt(2, 5))
@@ -142,6 +144,7 @@ const Body = () => {
                     
                     window.location.reload()
                 }
+
                 if (newHp < 0) {
                     newHp = 0;
                     setMsg(`Você perdeu`)
@@ -155,6 +158,7 @@ const Body = () => {
                 }, 2000)
 
                 setOponentHp(newOponentHp)
+
                 setHp(newHp)
 
                 return false
